@@ -211,6 +211,13 @@ message Cluster {
     // double. That is, if the desired factor is 1.9, the runtime value should
     // be 1900. Defaults to 1900.
     google.protobuf.UInt32Value success_rate_stdev_factor = 9;
+    // The number of consecutive connection failure responses before a
+    // consecutive connection failure occurs. Defaults to 5.
+    google.protobuf.UInt32Value consecutive_connection_failure = 10;
+    // The % chance that a host will be actually ejected when an outlier status
+    // is detected through consecutive connection failure. This setting can be
+    // used to disable ejection or to ramp it up slowly. Defaults to 100.
+    google.protobuf.UInt32Value enforcing_consecutive_connection_failure = 11;
   }
   OutlierDetection outlier_detection = 19;
 
